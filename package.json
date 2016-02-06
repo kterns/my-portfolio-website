@@ -1,0 +1,18 @@
+{
+  "name": "gulp-jade-sass",
+  "version": "0.0.0",
+  "description": "A starter project including Gulp, Jade and SASS",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kyle Terns",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^2.2.0"
+  }
+}

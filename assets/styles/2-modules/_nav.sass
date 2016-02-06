@@ -1,0 +1,23 @@
+/* Navigation */
+nav.navbar.navbar-inverse
+	background-color: #0d1011
+	color: #0e2527
+
+	.navbar-brand
+		color: #0F56BD
+		font-family: 'Overlock SC', Arial, sans-serif
+		font-size: 30px
+
+	#navbar
+		.nav-underline > .active > a,
+		.nav-underline > .active > a:hover,
+		.nav-underline > li > a:hover
+			background-color: transparent !important
+			border-bottom: 4px solid #9d9d9d
+			color: #4A81D0 !important
+
+
+		/* Nav media queries */
+		@media (max-width: 767px)
+			.nav-underline > .active > a,	.nav-underline > .active > a:hover,.nav-underline > li > a:hover
+				border-bottom: none
