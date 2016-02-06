@@ -79,10 +79,10 @@ gulp.task('downloads', function() {
 /* gulp watch - Watch task to run above tasks on file changes */
 gulp.task('watch', function() {
   gulp.watch('./downloads/**/*.*', ['downloads']);
-	gulp.watch('_jadefiles/**/*.jade', ['jade']);
+  gulp.watch('./assets/images/**/*.*', ['images']);
+	gulp.watch('./_jadefiles/**/*.jade', ['jade']);
 	gulp.watch('./assets/styles/**/*.sass', ['styles']);
 	gulp.watch('./assets/scripts/**/*.js', ['scripts']);
-  gulp.watch('./assets/images/**/*.*', ['images']);
 });
 
 /* TODO: Add deploy task to make deploy ready and then deploy

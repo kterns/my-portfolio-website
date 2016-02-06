@@ -1,18 +1,22 @@
 /* About section */
 section#about
+	/* TODO: Make background the height of the viewport? */
 	background:
-		image: url(../img/tech-background.png)
+		//image: url(../img/tech-background.png)
+		image: url(../img/code-bg.png)
 		color: black
-		repeat: repeat-y
-		position: center top
-		size: cover
+		repeat: no-repeat
+		position: 0 54px
+		size: auto 200%
 	color: #101010
 	padding-top: 100px
 	padding-bottom: 0
 
 	@media(max-width: 600px)
+		/* TODO: Use smaller background image for mobile */
 		background:
-			position: 20% top
+			position: -350px 50px
+			size: auto 100%
 
 	.me
 		margin-top: 10px
