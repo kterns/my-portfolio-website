@@ -1,8 +1,8 @@
-mixin project(title, link, img, course, date, ...techs)
+mixin project(title, link, image, course, date, ...techs)
   .row
     .col-md-4
       a(href="#{link}", target="_blank")
-        img.img-responsive(src="img/#{img}")
+        img.img-responsive(src="img/#{image}")
     .col-md-6
       h2
         a(href="#{link}", target="_blank") #{title}
@@ -22,7 +22,7 @@ mixin project(title, link, img, course, date, ...techs)
       
 section#portfolio
   .container
-    h1 Winthrop University Portfolio
+    h1.banner-wu.wu-highlight Winthrop University Portfolio
     p.
       The below were completed at Winthrop University as class projects. Clicking on the title or the image will open the live site in a new browser window.
       Some of the sites are simplistic but I included them to show the progress of my work throughout my courses at Winthrop.

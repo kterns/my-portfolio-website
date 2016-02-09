@@ -2,43 +2,61 @@
 section#about
 	/* TODO: Make background the height of the viewport? */
 	background:
-		//image: url(../img/tech-background.png)
-		image: url(../img/code-bg.png)
-		color: black
+		image: url(../img/tech-background.jpg)
+		color: #333
 		repeat: no-repeat
-		position: 0 54px
-		size: auto 200%
-	color: #101010
+		position: center center
+		attachment: fixed
+		//size: auto 200%
+		size: cover
+	// color: #101010
 	padding-top: 100px
-	padding-bottom: 0
+	// padding-bottom: 0
+	// min-width: 100vh
 
 	@media(max-width: 600px)
 		/* TODO: Use smaller background image for mobile */
+		/* TODO: Also make image fit the height of the section for mobile */
 		background:
 			position: -350px 50px
 			size: auto 100%
 
 	.me
 		margin-top: 10px
-		border: 2px solid black
-		outline: 10px solid white
+		margin-bottom: 40px
 
-	.linkedin
-		margin-top: 40px
-		margin-bottom: 20px
+		img
+			border: 2px solid black
+			outline: 10px solid white
 
-	.panel-body
-		padding-bottom: 25px
+	// .linkedin
+	// 	margin-top: 40px
+	// 	margin-bottom: 20px
+
+	.panel
+		border: 1px solid #222
+		background-color: rgba(20, 20, 20, 0.8)
+
+		.panel-body
+			padding-bottom: 25px
 
 	h4
+		color: $accent-color
 		margin-bottom: 10px
 
 	p:last-child
 		margin-bottom: 0
 
 	.about
-		h4:last-of-type
-			margin-top: 25px
+		// h4:last-of-type
+		// 	margin-top: 25px
 
 		p
 			line-height: 1.5
+
+	.skills
+		// width: 50%
+
+		p
+			// color: #ffe
+			color: $accent-color

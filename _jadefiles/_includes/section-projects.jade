@@ -1,0 +1,25 @@
+mixin project(title, link, img, course, date, ...techs)
+  .row
+    .col-md-4
+      a(href="#{link}", target="_blank")
+        img.img-responsive(src="img/#{img}")
+    .col-md-6
+      h2
+        a(href="#{link}", target="_blank") #{title}
+      h3 #{course}
+      h3 #{date}
+      div
+        if block
+          block
+        else
+          p No description available
+    .col-md-2
+      h4 Technologies
+      hr
+      each tech in techs
+        .label.label-primary #{tech}
+      hr
+
+section#projects
+  
+  //- 

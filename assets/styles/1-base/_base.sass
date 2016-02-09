@@ -1,7 +1,8 @@
 /* Global styling */
 body
-	background-color: #0d1011
-	color: #eee
+	// background-color: #0d1011
+	background-color: #ffe
+	color: #111
 
 section
 	padding-top: 50px
@@ -14,10 +15,18 @@ h1
 	font-size: 30px
 	color: #0F56BD
 
-a
-	color: #4A81D0
+ul
+	// list-style-type: none
 
-a:hover
-	text-decoration: none
+a
 	color: #0F56BD
-	transition: color 0.3s ease-in-out
+	outline: 0
+
+	&:hover
+		text-decoration: none
+		color: #4A81D0
+		transition: color 0.3s ease-in-out
+
+	// Remove outline for IE
+	&:active, &:focus
+		outline: 0

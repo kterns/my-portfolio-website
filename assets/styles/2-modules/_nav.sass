@@ -1,22 +1,42 @@
 /* Navigation */
 nav.navbar.navbar-inverse
 	background-color: #0d1011
-	color: #0e2527
+	//color: #0e2527
+	color: white
 
 	.navbar-brand
-		color: #0F56BD
+		color: $accent-color
+		// color: white
 		font-family: $brand-font
-		font-size: 25px
+		font-size: 22px
 		line-height: 30px
 
-	#navbar
-		.nav-underline > .active > a,
-		.nav-underline > .active > a:hover,
-		.nav-underline > li > a:hover
-			background-color: transparent !important
-			border-bottom: 4px solid #9d9d9d
-			color: #4A81D0 !important
+		.sub-brand
+			color: white
+			font-size: 16px
 
+	#navbar
+		.nav-underline > li > a
+			color: white
+
+			&:hover
+				color: $accent-color !important
+				/* TODO: Add emphasis on nav item hover */
+
+		.nav-underline > .active > a
+			border-bottom: 4px solid $accent-color
+
+		// .nav-underline > .active > a,
+		// .nav-underline > .active > a:hover,
+		// .nav-underline > li > a:hover
+		// 	background-color: transparent !important
+		// 	// border-bottom: 4px solid #9d9d9d
+		// 	border-bottom: 4px solid $accent-color
+		// 	// color: #4A81D0 !important
+		// 	color: $accent-color !important
+		//
+		// .nav-underline > .active > a
+		// 	border-bottom: none
 
 		/* Nav media queries */
 		@media (max-width: 767px)
