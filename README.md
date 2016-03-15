@@ -3,8 +3,8 @@
 ## Installation
 
 1. If you haven't already, **Install** [NodeJS](http://nodejs.org).
-2. Clone or [Download](https://github.com/kterns/my-portfolio-site/archive/master.zip) this repo.
-3. Install modules specified in [package.json](https://github.com/kterns/my-portfolio-site/blob/master/package.json).
+2. Clone or [Download](https://github.com/kterns/my-portfolio-website/archive/master.zip) this repo.
+3. Install modules specified in [package.json](https://github.com/kterns/my-portfolio-website/blob/master/package.json).
 ```shell
 $ npm install
 ```
@@ -41,4 +41,4 @@ $ gulp build --production
 
 ### All commands
 
-Check out the [gulpfile.js](https://github.com/kterns/my-portfolio-site/blob/master/gulpfile-public.js). If you haven't used [Gulp](http://gulpjs.com/), take a look at the [Gulp docs](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md).
+Check out the [gulpfile.js](https://github.com/kterns/my-portfolio-website/blob/master/gulpfile-public.js). If you haven't used [Gulp](http://gulpjs.com/), take a look at the [Gulp docs](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md).
