@@ -1,109 +1,200 @@
-/* Required Packages */
-var gulp = require('gulp'),
-    autoprefixer = require('gulp-autoprefixer'),
-    concat = require('gulp-concat'),
-    jade = require('gulp-jade'),
-    sass = require('gulp-sass');
+/* gulpfile.js */
 
-/* Task to handle image files */
-gulp.task('images', function() {
-  // For now just move all the images to deployment folder
-  return gulp.src('./assets/images/*')
-  /* TODO: Add image optimization here */
-  .pipe(gulp.dest('./public/img'));
+/* Local Variables */
+var paths = {
+  // Static files to be copied to build folder
+  assets: [
+    './client/assets/**/*.*',
+    '!./client/assets/{styles,scripts}/**/*.*'
+  ],
+  // Jade will check here for .jade files
+  jade: [
+    './client/*.jade'
+  ],
+  // Jade will check these folders for .jade files
+  templates: [
+    './client/components/**/*.jade',
+    './client/shared/**/*.jade'
+  ],
+  // Sass will check these folders for files when you use @import
+  sass: [
+    './client/assets/styles/main.sass'
+  ],
+  // These files are for your app's JavaScript
+  scripts: [
+    './client/assets/scripts/**/*.js',
+    './client/*.js',
+    './client/shared/**/*.js',
+    './client/components/**/*.js'
+  ],
+}
+
+/* Required Packages */
+var $ = require('gulp-load-plugins')();
+    argv = require('yargs').argv;
+    gulp = require('gulp');
+    rimraf = require('rimraf');
+    sequence = require('run-sequence');
+
+/* Check for --production flag */
+var isProduction = !!(argv.production);
+
+/* Check for --test flag */
+var isTest = !!(argv.test);
+
+/* Set Production flag when Test is run */
+isProduction = (isTest) ? 1:isProduction;
+
+/* Task to Whipe out the build folder */
+gulp.task('clean', function(cb) {
+  rimraf('./build', cb);
+});
+
+/* Task to copy files in the client folder except templates, Sass, and JavaScript */
+gulp.task('copy', function() {
+  return gulp.src(paths.assets, {
+    base: './client/'
+  })
+    .pipe(gulp.dest('./build'));
 });
 
 /* Task to convert jade to html */
-gulp.task('jade', function(){
-  // Convert the jade files directly under _jadefiles
-  // index.jade contains imports for all partials under _includes
-  return gulp.src('_jadefiles/*.jade')
-  .pipe(jade({
+gulp.task('jade', function() {
+
+  // Set Google Analytics up
+  var ga = $.if(isProduction && !isTest,
+    $.ga({
+      url: 'auto',
+      uid: 'UA-72894654-1',
+      tag: 'body',
+      sendPageView: true,
+      anonymizeIp: false
+    })
+    .on('error', function (e) {
+      console.log(e);
+    }));
+
+  // Convert Angular includes from jade to html
+  gulp.src('./client/shared/**/*.jade')
+
+  // Convert jade files to html
+  .pipe($.jade({
+    /* TODO: Non-minified HTML. Change this to false for production? */
+		pretty: true
+	}))
+  // Publish the partial html page(s) under the deployment folder
+  .pipe(gulp.dest('./build/templates/'));
+
+  // Same as above for non-shared components
+  gulp.src('./client/components/**/*.jade')
+  .pipe($.jade({
+		pretty: true
+	}))
+  .pipe(gulp.dest('./build/templates/'));
+
+  // Convert base jade files (index.jade) to html
+  // index.jade contains imports for all partials
+  return gulp.src(paths.jade)
+
+  // Convert jade files to html
+  .pipe($.jade({
     /* TODO: Non-minified HTML. Change this to false for production? */
 		pretty: true
 	}))
 
-  // Publish the final html page(s) to the deployment folder
-  .pipe(gulp.dest('./public'));
+  // Add Google Analytics for production builds
+  .pipe(ga)
+
+  .pipe(gulp.dest('./build/'));
 });
 
 /* Task to convert SASS to CSS */
 gulp.task('styles', function() {
+  var minifyCss = $.if(isProduction, $.minifyCss());
+
   // Convert the sass files directly under assets/styles
   // main.sass contains imports for all partials
-  return gulp.src('./assets/styles/main.sass')
+  return gulp.src(paths.sass)
 
-  // Placeholder for Bower
-	.pipe(sass({
-  /* TODO: Uncomment and modify if using bower components */
-	// 	includePaths: [
-	// 		'./bower_components/bootstrap/dist/css'
-	// 	]
-	}))
+  // Convert SASS to CSS
+	.pipe($.sass())
 
   // Concatenate all the CSS files into main.css
-	.pipe(concat('main.css'))
+	.pipe($.concat('main.css'))
 
   // Add prefixes, like -webkit, -moz, etc
-  .pipe(autoprefixer({
-    /* TODO: Should I increase this? */
+  .pipe($.autoprefixer({
     browsers: ['last 2 versions'],
     /* TODO: Research this attribute further */
     cascade: false
   }))
 
+  .pipe(minifyCss)
+
   // Publish the final main.css to the deployment folder
-	.pipe(gulp.dest('./public/css'));
+	.pipe(gulp.dest('./build/assets/css'));
 });
 
 /* Task to compile js into a single file */
 gulp.task('scripts', function() {
-	return gulp.src([
-		'./assets/scripts/*.js'
-	])
-	.pipe(concat('app.js'))
-	.pipe(gulp.dest('./public/js'));
+  var uglify = $.if(isProduction, $.uglify({
+    mangle: false
+  })
+    .on('error', function (e) {
+      console.log(e);
+    }));
 
-  /* TODO: Uncomment and modify if using Bower components */
-  /* TODO: Remove return keyword above as well */
-	//return gulp.src('./bower_components/modernizer/modernizr.js')
-	//	.pipe(gulp.dest('./public/js'));
+	return gulp.src(paths.scripts)
+    .pipe(uglify)
+    .pipe($.concat('app.js'))
+  	.pipe(gulp.dest('./build/assets/js'));
 });
 
-/* Add any public downloads to the deployment folder */
-gulp.task('downloads', function() {
-  return gulp.src('./downloads/*')
-  .pipe(gulp.dest('./public/downloads'));
+/* Task to uglify JavaScript */
+gulp.task('uglify', function() {
+  var uglify = $.if(isProduction, $.uglify()
+    .on('error', function (e) {
+      console.log(e);
+    }));
+
+  return gulp.src(paths.scripts)
+    .pipe(uglify)
+    .pipe($.concat('app.js'))
+    .pipe(gulp.dest('./build/assets/js/'));
+});
+
+/* gulp server -  Starts a server on http://localhost:8079 */
+gulp.task('server', ['build'], function() {
+  gulp.src('./build')
+    .pipe($.webserver({
+      port: 8079,
+      host: 'localhost',
+      fallback: 'index.html',
+      livereload: false,
+      open: false
+    }))
+  ;
+});
+
+/* gulp build - Builds app without starting a server */
+gulp.task('build', function(cb) {
+  sequence('clean', ['jade', 'styles', 'scripts'], 'copy', cb);
 });
 
 /* gulp watch - Watch task to run above tasks on file changes */
 gulp.task('watch', function() {
-  gulp.watch('./downloads/**/*.*', ['downloads']);
-  gulp.watch('./assets/images/**/*.*', ['images']);
-	gulp.watch('./_jadefiles/**/*.jade', ['jade']);
-	gulp.watch('./assets/styles/**/*.sass', ['styles']);
-	gulp.watch('./assets/scripts/**/*.js', ['scripts']);
+  // Watch Jade
+  gulp.watch([paths.jade, paths.templates], ['jade']);
+
+  // Watch Sass
+  gulp.watch([paths.sass, './client/assets/styles/**/*'], ['styles']);
+
+  // Watch JavaScript
+  gulp.watch(paths.scripts, ['scripts']);
+
+  // Watch static files
+  gulp.watch(paths.assets, ['copy']);
 });
 
-/* TODO: Add deploy task to make deploy ready and then deploy
-
-  /* TODO: Add CSS minification package */
-  //.pipe(   )
-
-  /* TODO: Add JS minification package */
-  //.pipe(   )
-
 // Default task when typing 'gulp'
-gulp.task('default', ['downloads', 'images', 'jade', 'styles', 'scripts']);
-
-
-/* TODO: Implement Source Maps? (gulp-sourcemaps) */
-// Default task when typing 'gulp'
-// gulp.task('default', function () {
-// 	return gulp.src('src/**/*.css')
-// 		.pipe(sourcemaps.init())
-// 		.pipe(autoprefixer())
-// 		.pipe(concat('all.css'))
-// 		.pipe(sourcemaps.write('.'))
-// 		.pipe(gulp.dest('dist'));
-// });
+gulp.task('default', ['server', 'watch'])

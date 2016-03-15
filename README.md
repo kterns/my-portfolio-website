@@ -1,26 +1,44 @@
-# my-portfolio-website
+# my-portfolio-site
 
-## System Preparation
+## Installation
 
-To use this project, you'll need the following module installed on your machine.
+1. If you haven't already, **Install** [NodeJS](http://nodejs.org).
+2. Clone or [Download](https://github.com/kterns/my-portfolio-site/archive/master.zip) this repo.
+3. Install modules specified in [package.json](https://github.com/kterns/my-portfolio-site/blob/master/package.json).
+```shell
+$ npm install
+```
 
-1. [NodeJS](http://nodejs.org) - use the installer.
+## Build and start site
+1. **Rename** _gulpfile-public.js_ to _gulpfile.js_.
+2. **Build** site, **Start** [local server](http://localhost:8079), and watch for file changes.
+```shell
+$ gulp
+```
 
-## Local Installation
+### Popular commands
 
-1. Clone this repo, or download it into a directory of your choice.
-2. Inside the directory, run `npm install`.
-
-## Usage
-
-Build the website
+Build the web site, start node server at [http://localhost:8079](http://localhost:8079), and watch for file changes.
 
 ```shell
 $ gulp
 ```
 
-Do an automatic build on file changes
-
+Build the web site
 ```shell
-$ gulp watch
+$ gulp build
 ```
+
+Build the web site for test deployment
+```shell
+$ gulp build --test
+```
+
+Build the web site for production deployment
+```shell
+$ gulp build --production
+```
+
+### All commands
+
+Check out the [gulpfile.js](https://github.com/kterns/my-portfolio-site/blob/master/gulpfile-public.js). If you haven't used [Gulp](http://gulpjs.com/), take a look at the [Gulp docs](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md).

@@ -1,0 +1,78 @@
+/* Resume section */
+section#resume
+	background: #cedce7 /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #596a72 0%, #cedce7 100%) /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #596a72 0%,#cedce7 100%) /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #596a72 0%, #cedce7 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#596a72', endColorstr='#cedce7',GradientType=1 ) /* IE6-9 fallback on horizontal gradient */
+	color: #101010
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif
+	font-size: 14px
+
+	.resume-download
+		text-align: center
+		padding: 20px 0
+		width: 150px
+		border: 2px solid black
+		background: white
+		padding-top: 10px
+		padding-bottom: 0px
+		margin-bottom: 20px
+
+	h1, h2, h3, h4
+		margin: 0
+		font-weight: bold
+
+	h1
+		font-size: 24px
+		color: black
+
+	h2
+		font-size: 18px
+		margin-bottom: 20px
+
+	h3
+		font-size: 16px
+
+	h4
+		font-size: 14px
+		margin-bottom: 10px
+		text-indent: 10px
+
+	ul
+		margin-bottom: 20px
+
+	.resume-header
+		border-bottom: 1px solid black
+
+		header li
+			list-style: none
+			display: inline
+
+			&:after
+				content: " \2022"
+
+			&:last-child:after
+				content: none
+
+	.paper
+		background-color: #fefefe
+		max-width: 737.5px
+		padding: 50px
+		box-shadow: 10px 10px 5px #888888
+
+		> h4
+			font-style: italic
+
+	.group-list
+		list-style: none
+		column-count: 3
+		column-gap: 20
+
+	/* Resume media queries */
+	@media (max-width: 600px)
+		/* Just show the download resume link on mobile screens */
+		min-height: 300px
+
+		.paper
+			display: none

@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(name="description", content="Long time web developer support engineer looking for a chance to become a full fledged web developer.")
+		meta(name="author", content="Kyle Terns")
+		link(rel="icon", href="assets/img/favicon.ico")
+		
+		title Kyle Terns - Web Developer
+		
+		| <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		| <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		
+		link(rel="stylesheet", href="assets/css/main.css")
+		
+	body(data-spy="scroll")
+		
+		include shared/nav/nav
+		
+		.content
+			include components/sections/section-about
+			//- include _includes/section-projects
+			include components/sections/section-portfolio
+			include components/sections/section-resume
+			//- include _includes/section-resources
+			include components/sections/section-contact
+		
+		include shared/footer/footer
+		
+		| <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+		| <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		
+		script(src="assets/js/app.js")

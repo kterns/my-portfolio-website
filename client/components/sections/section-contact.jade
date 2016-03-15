@@ -1,0 +1,16 @@
+section#contact
+  .container
+    h1 Contact me
+    form#contact-form(method="post" action="mail.php")
+      .form-group
+        label(for="name") Name
+        input#name.form-control(type="text", name="name", placeholder="Name", required)
+      .form-group
+        label(for="email") Email address
+        input#email.form-control(type="email", name="email", placeholder="Email", required)
+      .form-group
+        label(for="name") Message
+        textarea#message.form-control(name="message", rows="10", placeholder="Message", required)
+      button.btn.btn-primary(type="submit") Send Message
+    #form-messages
+        
