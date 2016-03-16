@@ -1,0 +1,17 @@
+mixin resource(link, image, title)
+  li 
+    a(href="#{link}" target="_blank")
+      img.img-responsive(src="#{image}" title="#{link}")
+      span  #{title}
+
+section#resources
+  ul
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")
+    +resource("http://kterns.com/index.html", "http://kterns.com/img/favicon.ico", "Useful resource")

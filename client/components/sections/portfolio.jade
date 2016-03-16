@@ -1,0 +1,139 @@
+mixin project(title, link, image, course, date, ...techs)
+  div.row
+    div.col-md-4
+      a(href="#{link}" target="_blank")
+        img.img-responsive(src="assets/img/#{image}")
+    div.col-md-6
+      h2
+        a(href="#{link}" target="_blank") #{title}
+      h3 #{course}
+      h3 #{date}
+      div
+        if block
+          block
+        else
+          p No description available
+    div.col-md-2
+      h4 Technologies
+      hr
+      each tech in techs
+        div.label.label-primary #{tech}
+      hr
+      
+section#portfolio
+  div.container
+    h1.banner-wu.wu-highlight Winthrop University Portfolio
+    p.
+      The below were completed at Winthrop University as class projects. Clicking on the title or the image will open the live site in a new browser window.
+      Some of the sites are simplistic but I included them to show the progress of my work throughout my courses at Winthrop.
+
+    +project(
+    "Rock Hill Women's Art Initiative", 
+    "http://kterns.com/portfolio/rock-hill-womens-art-initiative/", 
+    "womens-art-initiative-thumb.jpg", 
+    "VCOM 362 Interactive Media", 
+    "Dec 2015", 
+    "HTML", "CSS", "jQuery", "JavaScript", "PHP", "MySQL"
+    )
+      p.
+        This site was for a real client. The site design and styling was done by my partner and I did all the JavaScript/interactivity, including the art map, 
+        project/event forms, backend PHP REST API, frontend AJAX to communicate with the REST API, and design and implementation of the MySQL database.
+      p This was also my final project for my CSCI 355 Database Processing course.
+      p Note: The admin login has been disabled for security reasons, so no updates to the database can be made.
+
+    +project(
+    "Waiting to Cross - The Game", 
+    "http://kterns.com/portfolio/waiting-to-cross/", 
+    "waiting-to-cross-thumb.jpg", 
+    "VCOM 362 Interactive Media", 
+    "Oct 2015", 
+    "HTML", "CSS", "jQuery", "JavaScript"
+    )
+      p This was an interesting one. The idea was to create a site that was not meant to be just viewed from your desk, but instead had to be contextual.
+      p.
+        For this, I created a game called "Waiting to Cross" and affixed it to an actual crosswalk light. There's also a makeshift button over the crosswalk button 
+        so that when you push it it starts the game and signals the crosswalk.
+
+    +project(
+    "The Arduino UNO R3", 
+    "http://kterns.com/portfolio/the-arduino-uno-r3/", 
+    "arduino-uno-r3-thumb.jpg", 
+    "VCOM 362 Interactive Media", 
+    "Sept 2015", 
+    "HTML", "CSS"
+    )
+      p.
+        The goal of this project was to create a web site that represents a physical object in the real world. I chose the Arduino UNO since I was also into robotics and 
+        a member of the Association of Computing Machinery. Another goal of this site was to make it responsive on desktops, tablets, and mobile.
+    
+    +project(
+    "Dashboard Project", 
+    "http://kterns.com/img/dashboard-project.jpg", 
+    "dashboard-project-thumb.jpg", 
+    "CSCI 242 Object-Oriented Programming for the World Wide Web", 
+    "Apr 2015", 
+    "HTML", "CSS", "PHP", "Composer", "Doctrine", "Symfony2", "Twig", "MongoDB"
+    )
+      p.
+        This was one of my favorite projects as the professor let me work on a more challenging personal project I had wanted to do. The site incorporates the MVC pattern with 
+        the use of Doctrine, Symfony2 and Twig. This was also my first attempt at using NoSQL via MongoDB.
+      p Unfortunately, I wasn't able to install Mongo on my shared hosting environment so the link to the site is just a static image.
+    
+    +project(
+    "Comic Book Anti-Heroes", 
+    "http://kterns.com/portfolio/comic-book-anti-heroes/", 
+    "anti-heroes-thumb.jpg", 
+    "VCOM 262 Introduction to Web Design", 
+    "Apr 2015", 
+    "HTML", "CSS", "jQuery"
+    )
+      p.
+        We were given a few topics to pick from for this site and I chose Comic Books, specifically Comic Book Anti-Heroes. A key piece of the site was an introductory of 
+        JavaScript and jQuery by creating an interactive component, which can be found on the site under What are Anti-Heroes?/Interactive Anti-Heroes.
+      p Most of the images are copyrighted from a Marvel vs. DC video game.
+    
+    +project(
+    "Tribute to Alton Brown's Good Eats", 
+    "http://kterns.com/portfolio/tribute-to-alton-browns-good-eats/", 
+    "good-eats-thumb.jpg", 
+    "VCOM 262 Introduction to Web Design", 
+    "Mar 2015", 
+    "HTML", "CSS", "jQuery"
+    )
+      p.
+        For this project we were given all the content, which included recipes, restaurant reviews, etc. We could then pick a celebrity chef or make one up and make a site based 
+        around that. I chose Alton Brown and his show Good Eats.
+    
+    +project(
+    "The Tiny House Movement", 
+    "http://kterns.com/portfolio/the-tiny-house-movement/", 
+    "the-tiny-house-movement-thumb.jpg", 
+    "VCOM 262 Introduction to Web Design", 
+    "Feb 2015", 
+    "HTML", "CSS"
+    )
+      p.
+        My first project in a real web design class. This and all the sites so far were first designed in either Photoshop, Illustrator, or GIMP. This project also had us use a 
+        custom grid framework for the first time.
+    
+    +project(
+    "Course Scheduler", 
+    "http://kterns.com/portfolio/course-scheduler/", 
+    "course-scheduler-thumb.jpg", 
+    "CSCI 241 Client/Server Programming for the World Wide Web", 
+    "Dec 2014", 
+    "HTML", "PHP"
+    )
+      p This site was a project for a PHP class so there's no styling. The site showcases the use of PHP session state and everything else I had learned in PHP by that time.
+    
+    +project(
+    "8-bit Hangman", 
+    "http://kterns.com/portfolio/hangman/hangman.html", 
+    "8-bit_hangman-thumb.jpg", 
+    "DIFD 141 Introduction to Web Application Design", 
+    "Dec 2013", 
+    "HTML", "CSS", "JavaScript"
+    )
+      p.
+         First site I created at Winthrop University in an intro to web app design class. The goal of the site was to create a 2-player hangman game with whatever theme we wanted 
+         using HTML, CSS, and JavaScript.
