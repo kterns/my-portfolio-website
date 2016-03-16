@@ -114,5 +114,6 @@ build/
 # Gulp
 gulpfile.js
 
-
+# Other exclusions
 client/assets/downloads/*.*
+mail.php
