@@ -1,7 +1,16 @@
 /* Navigation */
 nav.navbar.navbar-inverse
-	background-color: #0d1011
+	// background-color: #0d1011
+	width: 100%
+	margin: 0
+	z-index: 100
+	border: none
 	color: white
+	background-color: transparent
+
+	&.navbar-static-bottom
+		position: absolute
+		bottom: 0
 
 	.navbar-brand
 		color: $accent-color
@@ -14,17 +23,43 @@ nav.navbar.navbar-inverse
 			font-size: 16px
 
 	#navbar
-		.nav-underline > li > a
+		&.navbar-collapse
+			padding-left: 0
+			padding-right: 0
+
+		.nav-custom > li > a
 			color: white
 
 			&:hover
-				color: $accent-color !important
+				// color: $accent-color !important
+				// border-bottom: 4px solid $accent-color
 				/* TODO: Add emphasis on nav item hover */
+				font-size: larger
 
-		.nav-underline > .active > a
-			border-bottom: 4px solid $accent-color
+				span
+					visibility: visible
+
+			span
+				font-size: 20px
+				visibility: hidden
+
+		.nav-custom > .active > a
+			// border-bottom: 4px solid $accent-color
+			background: transparent
+
+			span
+				visibility: visible
 
 		/* Navbar media queries */
 		@media (max-width: 767px)
-			.nav-underline > .active > a,	.nav-underline > .active > a:hover,.nav-underline > li > a:hover
+			.nav-custom > .active > a,	.nav-custom > .active > a:hover,.nav-custom > li > a:hover
 				border-bottom: none
+
+
+// .nav li span {
+//   font-size: 20px;
+//   visibility: hidden;
+// }
+// .nav li a:hover span {
+//   visibility: visible;
+// }
