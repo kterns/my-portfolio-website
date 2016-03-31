@@ -1,4 +1,4 @@
-nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+nav.navbar.navbar-inverse.navbar-static-bottom(role="navigation")
 	div.container
 		div.navbar-header.page-scroll
 			button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
@@ -6,30 +6,23 @@ nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
 				span.icon-bar
 				span.icon-bar
 				span.icon-bar
-			a.navbar-brand(href="#") Kyle Terns
-				span.sub-brand  - Web Developer
-		#navbar.collapse.navbar-collapse
-			ul.nav.navbar-nav.navbar-right.nav-underline
+			//- a.navbar-brand(href="#") Kyle Terns
+			//- 	span.sub-brand  - Web Developer
+		div#navbar.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right.nav-custom
 				li.active
-					a.page-scroll(data-toggle="pill" href="#landing") About
+					a.page-scroll(data-toggle="pill" href="#top")
+						| <span>{ </span>Home<span> }</span>
 				//- li
 				//- 	a.page-scroll(data-toggle="pill", href="#projects") Projects
 				li
-					a.page-scroll(data-toggle="pill" href="#portfolio") Portfolio
+					a.page-scroll(data-toggle="pill" href="#portfolio")
+						| <span>{ </span>Portfolio<span> }</span>
 				li
-					a.page-scroll(data-toggle="pill" href="#resume") Resume
+					a.page-scroll(data-toggle="pill" href="#resume")
+						| <span>{ </span>Resume<span> }</span>
 				//- li
 				//- 	a.page-scroll(data-toggle="pill", href="#resources") Resources
 				li
-					a.page-scroll(data-toggle="pill" href="#contact") Contact
-
-
-//- div.nav
-//-   ul
-//-     li
-//-       a.active(href="#landing")
-//-         | <span>{ </span>Home<span> }</span>
-//-       a(href="#portfolio")
-//-         | <span>[{ </span>Portfolio<span> }]</span></a></li>
-//-       a(href="#contact")
-//-         | <span>{{ </span>Contact<span> }}</span></a></li>
+					a.page-scroll(data-toggle="pill" href="#contact")
+						| <span>{ </span>Contact<span> }</span>
