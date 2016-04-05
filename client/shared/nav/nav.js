@@ -1,13 +1,14 @@
-//- bottom-static to top-fixed on scroll Nav
-
 $(document).ready(function() {
-	var $hero = $('#landing'),
+
+	var $hero = $('#hero'),
 			$firstPage = $('#portfolio'),
 			$nav = $('nav'),
 			navHeight = 50;
 
+	// bottom-static to top-fixed on scroll Nav
 	$(window).bind('scroll', function() {
 		var navPos = $(window).height() - navHeight;
+		// var navPos = window.innerHeight - navHeight;
 		// Starts out at bottom, switch to fixed stop after scrolling down
 		if ($(window).scrollTop() > navPos) {
 			$hero.css('position', 'fixed');
@@ -26,5 +27,14 @@ $(document).ready(function() {
 			$('nav').removeClass('navbar-fixed-top');
 			$('nav').addClass('move-to-bottom');
 		}
+	});
+
+	//jQuery for page scrolling feature - requires jQuery Easing plugin
+	$('a.page-scroll').bind('click', function(event) {
+			var $anchor = $(this);
+			$('html, body').stop().animate({
+					scrollTop: $($anchor.attr('href')).offset().top
+			}, 1500, 'easeInOutExpo');
+			event.preventDefault();
 	});
 });

@@ -1,194 +1,59 @@
-/* Global */
-
-body
-  /*font-family: sans-serif*/
-  font-family: 'Open Sans', sans-serif
-  margin: 0px 0px
-  background-color: #1A3742
-
-
-/* Header */
-#landing
-  // background-image: url("../img/tech-background.jpg")
-  background-image: url("../img/background.jpg")
-  background-size: cover
-  background-attachment: fixed
-  position: relative
-  width: 100%
-  height: 100vh
-  z-index: 9999
-
-  .container
-    margin: 0
+/* Cover */
 
 #hero
-  // background-image: url("../img/tech-background.jpg")
+	font-family: 'Open Sans', sans-serif
+	background:
+		image: url("../img/background.jpg")
+		size: cover
+		attachment: fixed
+	position: relative
+	width: 100%
+	height: 100vh
+	z-index: 1
 
-.logo img
-  border-radius: 50%
-  width: 150px
+	.cover
+		position: absolute
+		top: 45%
+		text-align: center
+		width: 100%
+		color: #fff
+		transform: translate(0,-50%)
 
-.header
-  position: absolute
-  top: 45%
-  text-align: center
-  /*text-transform: uppercase*/
-  width: 100%
-  color: #fff
-  /*font-size: 36px*/
-  transform: translate(0,-50%)
+		header
 
-.header h1
-  text-align: center
-  font-size: 60px
-  text-transform: uppercase
-  /*font-weight: 700*/
-  color: white
+			h1
+				margin-bottom: 20px
+				clear: both
+				text-align: center
+				font-size: 60px
+				text-transform: uppercase
+				color: white
+				letter-spacing: 0.05em
 
-  letter-spacing: 0.05em
-  margin-bottom: 20px
-  clear: both
-  /*padding-top: 100px*/
+				span
+					display: inline-block
+					padding: 0.2em 0.5em
+					border: white solid 6px
+					background-color: rgba(28, 73, 222, 0.8)
+					box-shadow: 10px 10px 20px #000000
 
-.header h1+p
-    font-size: 25px
-    // color: rgb(28, 73, 222)
-    color: #0A132F
-    font-weight: bold
+			h1 + p
+				font-size: 25px
+				color: #0A132F
+				font-weight: bold
 
-.header h1 span
-  display: inline-block
-  padding: 0.2em 0.5em
-  border: white solid 6px
-  background-color: rgba(28, 73, 222, 0.8)
-  box-shadow: 10px 10px 20px #000000
+			.logo img
+				border-radius: 50%
+				width: 150px
 
-.header .blurb
-  background-color: rgba(240, 240, 240, 0.2)
-  // background-color: rgba(255, 255, 255, 0.8)
-  color: #0A132F
-  padding: 20px
-  width: 500px
-  text-align: center
-  font-weight: bold
-  line-height: 1.5em
-  margin: 0 auto
-  margin-top: 50px
-  box-shadow: 10px 10px 20px #000000
-  // filter: blur(5px)
-
-/* Button */
-.btn-cta
-  // display: block
-  // margin: 20px auto
-  background-color: rgb(28, 73, 222)
-
-.btn-cta:hover
-  background-color: rgba(28, 73, 222, 0.8)
-
-
-/* Navigation */
-
-// .nav
-//   position: absolute
-//   bottom: 0px
-//   width: 100%
-//
-// .nav ul
-//   list-style-type: none
-//   margin: 0
-//   padding: 0
-//   float: right
-//   overflow: hidden
-//
-// .nav li
-//   float: left
-//
-// .nav li a
-//   display: block
-//   color: white
-//   text-align: center
-//   padding: 20px
-//   text-decoration: none
-//
-// .nav li a:hover
-//   /*background-color: #111*/
-//
-// .nav li span
-//   font-size: 20px
-//   visibility: hidden
-//
-// .nav li a:hover span
-//   visibility: visible
-//
-//
-// .nav a, a:visited, a:hover, a:active
-//   text-decoration: none
-//   color: #fff8e1
-
-
-
-// #content
-//   padding: 100px 50px
-//   text-align: center
-//   max-width: 960px
-//   width: 500px
-//   margin: 0px auto
-//   /*height: 1000px*/
-//   color: white
-//   padding-top: 8em
-//   padding-bottom: 12em
-//
-// #content h2
-//   font-family: 'Raleway', sans-serif
-//   margin: 0px 0px 30px 0px
-//   font-size: 3em
-//   color: #E6E0CB
-//   font-weight: 300
-//
-//
-// #footer
-//   padding: 30px 0px
-//   text-align: center
-//   background: #ddd
-
-
-/* Pio */
-
-html
-	-webkit-font-smoothing: antialiased
-
-
-html, body
-	// height: 100%
-	// padding: 0px
-	// margin: 0px
-
-
-body
-	overflow-y: scroll
-	overflow-x: hidden
-
-
-::-webkit-scrollbar
-  width: 10px
-  background: black
-
-
-::-webkit-scrollbar-thumb
-  background-color: rgb(28, 73, 222)
-
-
-// ::-moz-selection
-//   background-color: rgba(230,224,203,0.3)
-//   color: #fff8e1
-//
-//
-// ::selection
-//   background-color: rgba(230,224,203,0.3)
-//   color: #fff8e1
-
-
-// h1
-// 	font-family: 'Raleway'
-// 	font-weight: normal
+		.blurb
+			background-color: rgba(240, 240, 240, 0.2)
+			color: #0A132F
+			padding: 20px
+			width: 500px
+			text-align: center
+			font-weight: bold
+			line-height: 1.5em
+			margin: 0 auto
+			margin-top: 50px
+			box-shadow: 10px 10px 20px #000000
