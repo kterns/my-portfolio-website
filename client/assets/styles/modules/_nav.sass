@@ -1,30 +1,49 @@
 /* Navigation */
-nav.navbar.navbar-inverse
-	background-color: #0d1011
+
+.navbar
+	border: none
 	color: white
 
-	.navbar-brand
-		color: $accent-color
-		font-family: $brand-font
-		font-size: 22px
-		line-height: 30px
+	&.move-to-bottom
+		margin-bottom: 0
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
 
-		.sub-brand
-			color: white
-			font-size: 16px
+	// .navbar-brand
+	// 	color: $accent-color
+	// 	font-family: $brand-font
+	// 	font-size: 22px
+	// 	line-height: 30px
+	//
+	// 	.sub-brand
+	// 		color: white
+	// 		font-size: 16px
 
 	#navbar
-		.nav-underline > li > a
+		.nav-custom > li > a
 			color: white
 
 			&:hover
-				color: $accent-color !important
+				// color: $accent-color !important
+				// border-bottom: 4px solid $accent-color
 				/* TODO: Add emphasis on nav item hover */
+				font-size: larger
 
-		.nav-underline > .active > a
-			border-bottom: 4px solid $accent-color
+				span
+					visibility: visible
 
-		/* Navbar media queries */
-		@media (max-width: 767px)
-			.nav-underline > .active > a,	.nav-underline > .active > a:hover,.nav-underline > li > a:hover
-				border-bottom: none
+			span
+				font-size: 20px
+				visibility: hidden
+
+		.nav-custom > .active > a
+			background: transparent
+
+			span
+				visibility: visible
+
+	/* Navbar media queries */
+	@media (min-width: 768px)
+		background-color: transparent
