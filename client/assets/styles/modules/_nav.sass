@@ -1,32 +1,27 @@
 /* Navigation */
-nav.navbar.navbar-inverse
-	// background-color: #0d1011
-	width: 100%
-	margin: 0
-	z-index: 100
+
+.navbar
 	border: none
 	color: white
-	background-color: transparent
 
-	&.navbar-static-bottom
+	&.move-to-bottom
+		margin-bottom: 0
 		position: absolute
 		bottom: 0
+		left: 0
+		right: 0
 
-	.navbar-brand
-		color: $accent-color
-		font-family: $brand-font
-		font-size: 22px
-		line-height: 30px
-
-		.sub-brand
-			color: white
-			font-size: 16px
+	// .navbar-brand
+	// 	color: $accent-color
+	// 	font-family: $brand-font
+	// 	font-size: 22px
+	// 	line-height: 30px
+	//
+	// 	.sub-brand
+	// 		color: white
+	// 		font-size: 16px
 
 	#navbar
-		&.navbar-collapse
-			padding-left: 0
-			padding-right: 0
-
 		.nav-custom > li > a
 			color: white
 
@@ -44,22 +39,11 @@ nav.navbar.navbar-inverse
 				visibility: hidden
 
 		.nav-custom > .active > a
-			// border-bottom: 4px solid $accent-color
 			background: transparent
 
 			span
 				visibility: visible
 
-		/* Navbar media queries */
-		@media (max-width: 767px)
-			.nav-custom > .active > a,	.nav-custom > .active > a:hover,.nav-custom > li > a:hover
-				border-bottom: none
-
-
-// .nav li span {
-//   font-size: 20px;
-//   visibility: hidden;
-// }
-// .nav li a:hover span {
-//   visibility: visible;
-// }
+	/* Navbar media queries */
+	@media (min-width: 768px)
+		background-color: transparent
