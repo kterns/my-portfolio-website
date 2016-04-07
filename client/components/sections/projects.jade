@@ -1,25 +1,57 @@
 mixin project(title, link, img, course, date, ...techs)
-  div.row
-    div.col-md-4
-      a(href="#{link}" target="_blank")
-        img.img-responsive(src="assets/img/#{img}")
-    div.col-md-6
-      h2
-        a(href="#{link}" target="_blank") #{title}
-      h3 #{course}
-      h3 #{date}
-      div
-        if block
-          block
-        else
-          p No description available
-    div.col-md-2
-      h4 Technologies
-      hr
-      each tech in techs
-        div.label.label-primary #{tech}
-      hr
+	div.row
+		div.col-md-4
+			a(href="#{link}" target="_blank")
+				img.img-responsive(src="assets/img/#{img}")
+		div.col-md-6
+			h2
+				a(href="#{link}" target="_blank") #{title}
+			h3 #{course}
+			h3 #{date}
+			div
+				if block
+					block
+				else
+					p No description available
+		div.col-md-2
+			h4 Technologies
+			hr
+			each tech in techs
+				div.label.label-primary #{tech}
+			hr
 
 section#projects
-  
-  //- 
+	div.container-responsive
+		//- ul
+		//- 	li my-portfolio-website (github)
+		//- 	li angular-demo (github)
+		//- 	li bottom-static to top-fixed nav (codepen)
+		div#carousel-example-generic.carousel.slide(data-ride='carousel')
+			// Indicators
+			ol.carousel-indicators
+				li.active(data-target='#carousel-example-generic', data-slide-to='0')
+				li(data-target='#carousel-example-generic', data-slide-to='1')
+				li(data-target='#carousel-example-generic', data-slide-to='2')
+			// Wrapper for slides
+			div.carousel-inner(role='listbox')
+				div.item.active
+					h2 my-portfolio-website (github)
+					p Fusce eleifend malesuada leo ut auctor. Pellentesque viverra suscipit purus. Pellentesque vel odio at purus aliquam imperdiet. Nulla id nulla diam. Ut ut euismod orci, ut efficitur tellus. Sed et semper metus, in vestibulum enim. Sed vitae iaculis tellus. Suspendisse ex nulla, efficitur eu tempor eu, tempus et purus.
+					
+					//- img(src='http://fillmurray.com/1263/600', alt='...')
+					div.carousel-caption Project 1
+				div.item
+					h2 angular-demo (github)
+					p Fusce eleifend malesuada leo ut auctor. Pellentesque viverra suscipit purus. Pellentesque vel odio at purus aliquam imperdiet. Nulla id nulla diam. Ut ut euismod orci, ut efficitur tellus. Sed et semper metus, in vestibulum enim. Sed vitae iaculis tellus. Suspendisse ex nulla, efficitur eu tempor eu, tempus et purus.
+					div.carousel-caption Project 2
+				div.item
+					h2 bottom-static to top-fixed nav (codepen)
+					p Fusce eleifend malesuada leo ut auctor. Pellentesque viverra suscipit purus. Pellentesque vel odio at purus aliquam imperdiet. Nulla id nulla diam. Ut ut euismod orci, ut efficitur tellus. Sed et semper metus, in vestibulum enim. Sed vitae iaculis tellus. Suspendisse ex nulla, efficitur eu tempor eu, tempus et purus.
+					div.carousel-caption Project 3
+			// Controls
+			a.left.carousel-control(href='#carousel-example-generic', role='button', data-slide='prev')
+				span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+				span.sr-only Previous
+			a.right.carousel-control(href='#carousel-example-generic', role='button', data-slide='next')
+				span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+				span.sr-only Next

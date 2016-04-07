@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	var $hero = $('#hero'),
-			$firstPage = $('#portfolio'),
+			$firstPage = $('#projects'),
 			$nav = $('nav'),
 			navHeight = 50;
 
